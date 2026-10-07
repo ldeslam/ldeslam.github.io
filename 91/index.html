@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91次元-二次元动漫社区与追番资源导航</title>
+<meta name="description" content="91次元是一个面向二次元爱好者的动漫社区与追番导航，提供新番速递、经典番剧、漫画轻小说、同人创作、声优资讯与社区讨论等栏目，帮助你高效找到想看的内容并参与交流。">
+<meta name="keywords" content="91次元,二次元社区,动漫追番,新番推荐,漫画轻小说,同人创作,ACG资讯">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#0f1020;
+  --bg-soft:#171935;
+  --panel:#1d1f3d;
+  --panel-2:#242750;
+  --line:rgba(255,255,255,.09);
+  --text:#eceefb;
+  --muted:#a4a8cc;
+  --pink:#ff5c9d;
+  --violet:#8b6cff;
+  --cyan:#4fd6e3;
+  --amber:#ffc861;
+  --radius:16px;
+  --shadow:0 18px 45px rgba(6,7,20,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:
+    radial-gradient(1100px 520px at 12% -8%,rgba(139,108,255,.30),transparent 60%),
+    radial-gradient(900px 460px at 92% 4%,rgba(255,92,157,.22),transparent 62%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(15,16,32,.82);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:22px;
+  height:68px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.22rem;letter-spacing:.5px;white-space:nowrap}
+.logo-mark{
+  width:34px;height:34px;border-radius:11px;
+  background:linear-gradient(135deg,var(--pink),var(--violet));
+  display:grid;place-items:center;font-size:.82rem;font-weight:800;color:#fff;
+  box-shadow:0 8px 20px rgba(255,92,157,.35);
+}
+.logo span{background:linear-gradient(90deg,#fff,#c9c2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.main-nav{display:flex;gap:4px;margin-left:8px;flex:1}
+.main-nav a{
+  padding:8px 13px;border-radius:10px;font-size:.94rem;color:var(--muted);
+  transition:.2s;
+}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,.08)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:9px 18px;border-radius:999px;font-size:.9rem;font-weight:600;
+  border:1px solid transparent;cursor:pointer;transition:.22s;white-space:nowrap;
+}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;box-shadow:0 10px 24px rgba(139,108,255,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,92,157,.4)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{border-color:var(--pink);color:#fff}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:10px;padding:6px 11px;font-size:1.05rem;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 46px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.tagline{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.82rem;color:var(--cyan);letter-spacing:1px;
+  border:1px solid rgba(79,214,227,.35);border-radius:999px;
+  padding:5px 14px;margin-bottom:20px;background:rgba(79,214,227,.08);
+}
+.hero h1{
+  font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.25;font-weight:800;letter-spacing:-.5px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--pink),var(--amber));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{margin-top:18px;color:var(--muted);font-size:1.02rem;max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px}
+.hero-stats div strong{display:block;font-size:1.32rem;font-weight:800;color:#fff}
+.hero-stats div span{font-size:.82rem;color:var(--muted)}
+
+.hero-visual{
+  background:linear-gradient(160deg,rgba(139,108,255,.22),rgba(255,92,157,.14));
+  border:1px solid var(--line);border-radius:24px;padding:22px;
+  box-shadow:var(--shadow);
+}
+.hero-visual h3{font-size:.95rem;color:var(--muted);font-weight:600;margin-bottom:14px;letter-spacing:1px}
+.spot-list{display:flex;flex-direction:column;gap:11px}
+.spot{
+  display:flex;gap:13px;align-items:center;
+  background:rgba(15,16,32,.55);border:1px solid var(--line);
+  border-radius:14px;padding:11px 13px;transition:.22s;
+}
+.spot:hover{border-color:rgba(255,92,157,.55);transform:translateX(4px)}
+.spot-thumb{
+  width:46px;height:46px;border-radius:12px;flex:0 0 46px;
+  display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#fff;
+}
+.t1{background:linear-gradient(135deg,#ff5c9d,#ff9b6a)}
+.t2{background:linear-gradient(135deg,#8b6cff,#4fd6e3)}
+.t3{background:linear-gradient(135deg,#4fd6e3,#3f8bff)}
+.t4{background:linear-gradient(135deg,#ffc861,#ff7a59)}
+.spot-body{min-width:0}
+.spot-body strong{display:block;font-size:.94rem;font-weight:700}
+.spot-body span{font-size:.79rem;color:var(--muted)}
+
+/* ---------- section base ---------- */
+section{padding:52px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:26px;flex-wrap:wrap}
+.section-head h2{font-size:1.5rem;font-weight:800;letter-spacing:-.3px}
+.section-head h2::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:3px;
+  background:linear-gradient(135deg,var(--pink),var(--violet));
+  margin-right:10px;vertical-align:middle;
+}
+.section-head p{color:var(--muted);font-size:.9rem;margin-top:6px}
+.link-more{font-size:.87rem;color:var(--cyan);border-bottom:1px dashed rgba(79,214,227,.5);padding-bottom:2px}
+.link-more:hover{color:#fff;border-color:#fff}
+
+/* ---------- categories ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.24s;position:relative;overflow:hidden;
+}
+.cat-card::after{
+  content:"";position:absolute;inset:auto -30% -60% auto;width:150px;height:150px;
+  background:radial-gradient(circle,rgba(139,108,255,.35),transparent 70%);
+  opacity:0;transition:.3s;
+}
+.cat-card:hover{transform:translateY(-5px);border-color:rgba(139,108,255,.55);box-shadow:var(--shadow)}
+.cat-card:hover::after{opacity:1}
+.cat-icon{font-size:1.5rem;margin-bottom:10px}
+.cat-card h3{font-size:1.02rem;font-weight:700;margin-bottom:6px}
+.cat-card p{font-size:.85rem;color:var(--muted)}
+.cat-card .cat-count{display:inline-block;margin-top:12px;font-size:.76rem;color:var(--amber);border:1px solid rgba(255,200,97,.35);border-radius:999px;padding:2px 10px}
+
+/* ---------- anime cards ---------- */
+.anime-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:18px}
+.anime-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.24s;display:flex;flex-direction:column;
+}
+.anime-card:hover{transform:translateY(-6px);border-color:rgba(255,92,157,.5);box-shadow:var(--shadow)}
+.anime-cover{
+  height:118px;display:flex;align-items:flex-end;padding:12px;
+  font-weight:800;font-size:1.1rem;color:rgba(255,255,255,.92);
+  letter-spacing:1px;
+}
+.c1{background:linear-gradient(135deg,#8b6cff,#ff5c9d)}
+.c2{background:linear-gradient(135deg,#4fd6e3,#3f8bff)}
+.c3{background:linear-gradient(135deg,#ff8a5c,#ffc861)}
+.c4{background:linear-gradient(135deg,#ff5c9d,#8b6cff)}
+.c5{background:linear-gradient(135deg,#3f8bff,#8b6cff)}
+.c6{background:linear-gradient(135deg,#ffc861,#ff5c9d)}
+.anime-body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.anime-body h3{font-size:.98rem;font-weight:700}
+.anime-body p{font-size:.83rem;color:var(--muted);flex:1}
+.meta{display:flex;gap:8px;flex-wrap:wrap;font-size:.74rem}
+.meta span{border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted)}
+.meta span.hot{color:var(--pink);border-color:rgba(255,92,157,.4)}
+
+/* ---------- update list ---------- */
+.update-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:26px}
+.update-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.update-item{
+  display:flex;align-items:center;gap:14px;padding:14px 18px;
+  border-bottom:1px solid var(--line);transition:.2s;
+}
+.update-item:last-child{border-bottom:none}
+.update-item:hover{background:rgba(255,255,255,.045)}
+.update-index{
+  width:26px;height:26px;flex:0 0 26px;border-radius:8px;display:grid;place-items:center;
+  font-size:.78rem;font-weight:800;background:rgba(255,255,255,.07);color:var(--muted);
+}
+.update-item:nth-child(1) .update-index{background:linear-gradient(135deg,#ff5c9d,#ff9b6a);color:#fff}
+.update-item:nth-child(2) .update-index{background:linear-gradient(135deg,#8b6cff,#4fd6e3);color:#fff}
+.update-item:nth-child(3) .update-index{background:linear-gradient(135deg,#ffc861,#ff7a59);color:#3a2600}
+.update-text{flex:1;min-width:0}
+.update-text strong{font-size:.94rem;font-weight:600;display:block}
+.update-text span{font-size:.79rem;color:var(--muted)}
+.update-tag{font-size:.76rem;color:var(--cyan);white-space:nowrap}
+
+/* ---------- sidebar ---------- */
+.side-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.side-panel h3{font-size:1rem;font-weight:700;margin-bottom:14px}
+.rank-list{display:flex;flex-direction:column;gap:12px}
+.rank-item{display:flex;gap:11px;align-items:flex-start;font-size:.88rem}
+.rank-num{
+  width:22px;height:22px;flex:0 0 22px;border-radius:7px;display:grid;place-items:center;
+  font-size:.74rem;font-weight:800;background:rgba(255,255,255,.08);color:var(--muted);
+}
+.rank-item:nth-child(1) .rank-num{background:var(--pink);color:#fff}
+.rank-item:nth-child(2) .rank-num{background:var(--violet);color:#fff}
+.rank-item:nth-child(3) .rank-num{background:var(--amber);color:#3a2600}
+.rank-item p{color:var(--text);line-height:1.5}
+.rank-item small{display:block;color:var(--muted);font-size:.76rem;margin-top:2px}
+.side-note{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted)}
+
+/* ---------- guide ---------- */
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.guide-card{
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+}
+.guide-card .step{
+  font-size:.78rem;font-weight:800;color:var(--violet);letter-spacing:1.5px;margin-bottom:10px;
+}
+.guide-card h3{font-size:1.02rem;margin-bottom:8px}
+.guide-card p{font-size:.86rem;color:var(--muted)}
+
+/* ---------- community ---------- */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.topic-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.24s;
+}
+.topic-card:hover{border-color:rgba(79,214,227,.5);transform:translateY(-4px)}
+.topic-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.avatar{
+  width:32px;height:32px;border-radius:50%;flex:0 0 32px;display:grid;place-items:center;
+  font-size:.8rem;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--violet),var(--cyan));
+}
+.topic-head strong{font-size:.88rem}
+.topic-head span{font-size:.76rem;color:var(--muted)}
+.topic-card h3{font-size:.98rem;margin-bottom:8px;line-height:1.5}
+.topic-card p{font-size:.85rem;color:var(--muted)}
+.topic-foot{display:flex;gap:14px;margin-top:14px;font-size:.78rem;color:var(--muted)}
+
+/* ---------- faq ---------- */
+.faq{display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:16px 20px;transition:.22s;
+}
+.faq-item[open]{border-color:rgba(139,108,255,.5);background:var(--panel-2)}
+.faq-item summary{
+  cursor:pointer;font-weight:700;font-size:.96rem;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--pink);font-size:1.2rem;font-weight:700}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{margin-top:12px;font-size:.88rem;color:var(--muted)}
+
+/* ---------- footer ---------- */
+.site-footer{
+  border-top:1px solid var(--line);background:rgba(11,12,26,.85);
+  padding:44px 0 26px;margin-top:20px;
+}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+.footer-brand p{font-size:.85rem;color:var(--muted);margin-top:12px;max-width:34ch}
+.footer-col h4{font-size:.9rem;margin-bottom:13px;color:#fff}
+.footer-col a{display:block;font-size:.84rem;color:var(--muted);padding:4px 0;transition:.2s}
+.footer-col a:hover{color:var(--pink)}
+.footer-bottom{
+  margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:.8rem;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .update-layout{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .main-nav{
+    position:absolute;top:68px;left:0;right:0;
+    flex-direction:column;background:rgba(15,16,32,.98);
+    border-bottom:1px solid var(--line);padding:12px 5vw 18px;gap:2px;
+    display:none;
+  }
+  .main-nav.open{display:flex}
+  .main-nav a{padding:11px 12px}
+  .nav-toggle{display:block}
+  .header-actions .btn-ghost{display:none}
+  .hero{padding:40px 0 30px}
+  .hero-stats{gap:18px}
+  section{padding:38px 0}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .anime-grid{grid-template-columns:1fr 1fr}
+  .anime-cover{height:92px;font-size:.92rem}
+  .btn{padding:8px 14px;font-size:.84rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">91</span>
+      <span>91次元</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#categories" class="active">分类导航</a>
+      <a href="#anime">番剧推荐</a>
+      <a href="#updates">更新速递</a>
+      <a href="#guide">追番指南</a>
+      <a href="#community">社区话题</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#community" class="btn btn-ghost">加入讨论</a>
+      <a href="#anime" class="btn btn-primary">开始追番</a>
+      <button class="nav-toggle" id="navToggle" aria-label="展开导航">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tagline">二次元 · 追番 · 同好聚集地</span>
+        <h1>在 <em>91次元</em>，找到属于你的下一部心动番剧</h1>
+        <p class="lead">
+          91次元是一个面向动漫爱好者的内容导航与交流社区。这里聚合新番速递、经典补番、漫画轻小说、同人创作与声优资讯，
+          用清晰的分类和榜单帮你少走弯路，把时间留给真正想看的内容。
+        </p>
+        <div class="hero-actions">
+          <a href="#anime" class="btn btn-primary">浏览番剧推荐</a>
+          <a href="#categories" class="btn btn-ghost">查看全部分类</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6+</strong><span>内容频道</span></div>
+          <div><strong>每日</strong><span>更新速递</span></div>
+          <div><strong>多端</strong><span>自适应浏览</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-visual">
+        <h3>今日焦点</h3>
+        <div class="spot-list">
+          <div class="spot">
+            <div class="spot-thumb t1">新</div>
+            <div class="spot-body">
+              <strong>新番速递</strong>
+              <span>本季开播作品与看点梳理</span>
+            </div>
+          </div>
+          <div class="spot">
+            <div class="spot-thumb t2">补</div>
+            <div class="spot-body">
+              <strong>经典补番清单</strong>
+              <span>口碑长线作品按题材归类</span>
+            </div>
+          </div>
+          <div class="spot">
+            <div class="spot-thumb t3">漫</div>
+            <div class="spot-body">
+              <strong>漫画与轻小说</strong>
+              <span>原作与改编的对照阅读</span>
+            </div>
+          </div>
+          <div class="spot">
+            <div class="spot-thumb t4">同</div>
+            <div class="spot-body">
+              <strong>同人创作区</strong>
+              <span>插画、短篇与设定讨论</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>内容分类导航</h2>
+          <p>按你习惯的方式切入，从题材、形式或更新节奏开始浏览。</p>
+        </div>
+        <a href="#anime" class="link-more">直接看推荐 →</a>
+      </div>
+
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-icon">📺</div>
+          <h3>电视动画</h3>
+          <p>按季度整理的番剧条目，包含题材标签、集数信息与观看顺序建议。</p>
+          <span class="cat-count">新番 / 经典</span>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎬</div>
+          <h3>剧场版与OVA</h3>
+          <p>独立于TV主线的剧场作品与外传动画，适合集中时间一次看完。</p>
+          <span class="cat-count">补完向</span>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📖</div>
+          <h3>漫画原作</h3>
+          <p>动画改编背后的原作漫画，帮助你了解剧情走向与分镜表达差异。</p>
+          <span class="cat-count">原作党</span>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">📚</div>
+          <h3>轻小说</h3>
+          <p>以文字为主的轻小说作品，涵盖日常、奇幻、恋爱与悬疑等方向。</p>
+          <span class="cat-count">阅读向</span>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎨</div>
+          <h3>同人创作</h3>
+          <p>插画、短篇、设定考据与二次创作，是社区活跃度最高的板块之一。</p>
+          <span class="cat-count">社区共创</span>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon">🎙️</div>
+          <h3>声优与音乐</h3>
+          <p>关注配音阵容、主题曲与角色歌，从听觉维度重新认识一部作品。</p>
+          <span class="cat-count">资讯向</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIME -->
+  <section id="anime">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>番剧推荐</h2>
+          <p>按题材与观看门槛整理的推荐条目，方便你按心情挑选。</p>
+        </div>
+        <a href="#updates" class="link-more">查看更新速递 →</a>
+      </div>
+
+      <div class="anime-grid">
+        <article class="anime-card">
+          <div class="anime-cover c1">热血战斗</div>
+          <div class="anime-body">
+            <h3>成长型主角路线</h3>
+            <p>主角从弱小到独当一面，强调伙伴羁绊与阶段性目标，适合喜欢爽快推进的观众。</p>
+            <div class="meta"><span>长篇</span><span class="hot">高热度</span><span>少年向</span></div>
+          </div>
+        </article>
+
+        <article class="anime-card">
+          <div class="anime-cover c2">日常治愈</div>
+          <div class="anime-body">
+            <h3>轻松日常与治愈系</h3>
+            <p>节奏舒缓、冲突温和，适合下班后放松观看，对连续追番的时间要求也较低。</p>
+            <div class="meta"><span>短篇</span><span>治愈</span><span>随时可看</span></div>
+          </div>
+        </article>
+
+        <article class="anime-card">
+          <div class="anime-cover c3">奇幻冒险</div>
+          <div class="anime-body">
+            <h3>异世界与奇幻冒险</h3>
+            <p>世界观设定丰富，常见魔法、冒险者公会与任务体系，适合喜欢沉浸式设定的观众。</p>
+            <div class="meta"><span>设定向</span><span>季番</span><span>奇幻</span></div>
+          </div>
+        </article>
+
+        <article class="anime-card">
+          <div class="anime-cover c4">恋爱青春</div>
+          <div class="anime-body">
+            <h3>校园恋爱与青春</h3>
+            <p>聚焦人物关系与情绪变化，剧情推进细腻，适合喜欢角色互动的观众。</p>
+            <div class="meta"><span>情感向</span><span>校园</span><span>季番</span></div>
+          </div>
+        </article>
+
+        <article class="anime-card">
+          <div class="anime-cover c5">科幻推理</div>
+          <div class="anime-body">
+            <h3>科幻与悬疑推理</h3>
+            <p>强调逻辑线索与世界观反转，观看时建议按顺序追，避免提前被剧透关键节点。</p>
+            <div class="meta"><span>烧脑</span><span>剧情向</span><span>建议连看</span></div>
+        </div>
+        </article>
+
+        <article class="anime-card">
+          <div class="anime-cover c6">国漫与合制</div>
+          <div class="anime-body">
+            <h3>国产动画与合制作品</h3>
+            <p>近年国产动画在题材与制作上持续拓展，玄幻、武侠与都市题材均有代表性方向。</p>
+            <div class="meta"><span>国漫</span><span>多题材</span><span>持续更新</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES + RANK -->
+  <section id="updates">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>更新速递与热度榜</h2>
+          <p>左侧为近期更新动态，右侧为社区讨论热度较高的方向。</p>
+        </div>
+      </div>
+
+      <div class="update-layout">
+        <div class="update-list">
+          <div class="update-item">
+            <div class="update-index">01</div>
+            <div class="update-text">
+              <strong>本季新番陆续开播，首集观感讨论升温</strong>
+              <span>新番 · 首集评价 · 观看建议</span>
+            </div>
+            <div class="update-tag">新番</div>
+          </div>
+          <div class="update-item">
+            <div class="update-index">02</div>
+            <div class="update-text">
+              <strong>经典长篇补番顺序整理，避免跳集踩坑</strong>
+              <span>补番 · 观看顺序 · 剧情衔接</span>
+            </div>
+            <div class="update-tag">补番</div>
+          </div>
+          <div class="update-item">
+            <div class="update-index">03</div>
+            <div class="update-text">
+              <strong>漫画原作与动画改编差异盘点</strong>
+              <span>原作 · 改编 · 分镜对比</span>
+            </div>
+            <div class="update-tag">原作</div>
+          </div>
+          <div class="update-item">
+            <div class="update-index">04</div>
+            <div class="update-text">
+              <strong>剧场版作品集中回顾，适合周末一次看完</strong>
+              <span>剧场版 · 独立剧情 · 观影清单</span>
+            </div>
+            <div class="update-tag">剧场版</div>
+          </div>
+          <div class="update-item">
+            <div class="update-index">05</div>
+            <div class="update-text">
+              <strong>同人创作区新投稿增加，插画与短篇并行</strong>
+              <span>同人 · 插画 · 短篇创作</span>
+            </div>
+            <div class="update-tag">社区</div>
+          </div>
+          <div class="update-item">
+            <div class="update-index">06</div>
+            <div class="update-text">
+              <strong>主题曲与角色歌整理，从音乐角度回顾作品</strong>
+              <span>音乐 · 声优 · 角色歌</span>
+            </div>
+            <div class="update-tag">音乐</div>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <h3>社区热度方向</h3>
+          <div class="rank-list">
+            <div class="rank-item">
+              <div class="rank-num">1</div>
+              <div><p>本季新番讨论</p><small>首集观感与后续走向</small></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">2</div>
+              <div><p>经典作品补番</p><small>观看顺序与版本选择</small></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">3</div>
+              <div><p>原作漫画对照</p><small>改编删减与还原度</small></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">4</div>
+              <div><p>同人插画创作</p><small>角色设定与风格练习</small></div>
+            </div>
+            <div class="rank-item">
+              <div class="rank-num">5</div>
+              <div><p>声优与音乐</p><small>配音阵容与主题曲</small></div>
+            </div>
+          </div>
+          <p class="side-note">
+            榜单依据社区讨论活跃度归纳，仅作为浏览参考，不代表作品质量的绝对排序。
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>追番与选番指南</h2>
+          <p>从零开始建立自己的观看节奏，比盲目跟风更省时间。</p>
+        </div>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <div class="step">STEP 01</div>
+          <h3>先确定可投入的时间</h3>
+          <p>长篇作品适合稳定追更，季番与短篇更适合碎片时间。先评估每周能投入的时长，再决定追几部，避免同时开坑过多导致弃番。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 02</div>
+          <h3>按题材标签筛选</h3>
+          <p>用热血、日常、奇幻、恋爱、悬疑等标签快速缩小范围。标签只是入口，具体还要看简介与首集观感是否符合个人口味。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 03</div>
+          <h3>关注改编与原作关系</h3>
+          <p>部分动画会对原作剧情进行压缩或调整。如果在意完整性，可以先了解改编范围，再决定是看动画、读原作，还是两者结合。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 04</div>
+          <h3>建立自己的观看清单</h3>
+          <p>把想看的作品分成“正在追”“待补”“观望”三类，定期整理。清单化的好处是不容易被短时热度带着走。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 05</div>
+          <h3>参与讨论但避免剧透</h3>
+          <p>社区讨论能补充很多细节，但在公共话题中标注剧透范围是基本礼仪，尤其是悬疑与剧情向作品。</p>
+        </article>
+        <article class="guide-card">
+          <div class="step">STEP 06</div>
+          <h3>理性看待评分与榜单</h3>
+          <p>评分反映的是一部分观众的平均感受，不是唯一标准。题材偏好差异很大，适合自己的作品未必在榜单前列。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>社区话题</h2>
+          <p>来自不同兴趣方向的讨论，欢迎带着自己的观点参与。</p>
+        </div>
+      </div>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-head">
+            <div class="avatar">番</div>
+            <div><strong>新番观察室</strong><br><span>本季讨论</span></div>
+          </div>
+          <h3>首集观感与后续期待</h3>
+          <p>新番开播后，制作水准、节奏把控与角色塑造往往是讨论焦点。可以分享你的第一印象，也可以看看别人关注了哪些细节。</p>
+          <div class="topic-foot"><span>💬 讨论中</span><span>🏷 新番</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div class="avatar">补</div>
+            <div><strong>补番计划</strong><br><span>长线观看</span></div>
+          </div>
+          <h3>经典作品的入坑顺序</h3>
+          <p>系列作品往往存在多条时间线或外传。整理观看顺序、区分主线与支线，是补番前值得先做的一步功课。</p>
+          <div class="topic-foot"><span>💬 讨论中</span><span>🏷 补番</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div class="avatar">漫</div>
+            <div><strong>原作对照</strong><br><span>漫画与轻小说</span></div>
+          </div>
+          <h3>动画改编还原度交流</h3>
+          <p>改编作品在篇幅限制下难免取舍。对比原作与动画的差异，既能补充剧情，也能更直观地看到分镜与演出的价值。</p>
+          <div class="topic-foot"><span>💬 讨论中</span><span>🏷 原作</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-head">
+            <div class="avatar">同</div>
+            <div><strong>同人创作</strong><br><span>插画与文字</span></div>
+          </div>
+          <h3>角色设定与二次创作</h3>
+          <p>同人创作是社区活力的重要来源。无论是插画练习、短篇故事还是设定考据，都可以在这里找到同好交流。</p>
+          <div class="topic-foot"><span>💬 讨论中</span><span>🏷 同人</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>关于 91次元 的使用方式与内容范围，这里集中说明。</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary>91次元主要提供什么内容？</summary>
+          <p>91次元定位为二次元内容导航与交流社区，围绕动画、漫画、轻小说、同人创作、声优与音乐等方向整理条目、推荐与讨论入口，帮助用户更快找到感兴趣的内容。</p>
+        </details>
+        <details class="faq-item">
+          <summary>页面上的推荐和榜单是如何整理的？</summary>
+          <p>推荐内容依据题材分类、更新节奏与社区讨论活跃度进行归纳，属于浏览参考性质。不同观众的偏好差异较大，建议结合简介与自身口味判断，不必完全依赖榜单。</p>
+        </details>
+        <details class="faq-item">
+          <summary>没有看过很多动漫，适合使用吗？</summary>
+          <p>适合。追番指南栏目专门面向入门观众，从时间安排、题材筛选到观看顺序都有说明。可以从短篇或日常题材入手，逐步建立自己的观看节奏。</p>
+        </details>
+        <details class="faq-item">
+          <summary>可以在社区里发布自己的创作吗？</summary>
+          <p>社区鼓励围绕二次元主题的原创与二次创作交流，包括插画、短篇文字、设定讨论等。发布时建议注明作品来源与剧透范围，尊重原作者与其他用户的观看体验。</p>
+        </details>
+        <details class="faq-item">
+          <summary>手机上访问体验如何？</summary>
+          <p>页面采用自适应布局，在手机、平板与桌面端均可正常浏览。导航在窄屏下会折叠为菜单按钮，点击即可展开栏目列表。</p>
+        </details>
+        <details class="faq-item">
+          <summary>内容会持续更新吗？</summary>
+          <p>更新速递与社区话题会随新番播出节奏和社区讨论情况调整。具体更新频率取决于当季作品数量与社区活跃度，页面会保持相对稳定的栏目结构。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark">91</span>
+          <span>91次元</span>
+        </a>
+        <p>面向二次元爱好者的内容导航与交流社区，整理番剧、漫画、轻小说与同人创作相关入口。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容频道</h4>
+        <a href="#categories">分类导航</a>
+        <a href="#anime">番剧推荐</a>
+        <a href="#updates">更新速递</a>
+        <a href="#guide">追番指南</a>
+      </div>
+      <div class="footer-col">
+        <h4>社区</h4>
+        <a href="#community">话题讨论</a>
+        <a href="#community">同人创作</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="footer-col">
+        <h4>使用提示</h4>
+        <a href="#guide">观看建议</a>
+        <a href="#faq">内容说明</a>
+        <a href="#top">返回顶部</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 91次元 · 二次元内容导航与交流社区</span>
+      <span>页面内容为浏览参考，请遵守相关平台与版权规定</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('mainNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('open');
+      });
+    });
+  }
+
+  var navLinks = document.querySelectorAll('.main-nav a');
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.forEach(function(item){ item.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+              </html>
