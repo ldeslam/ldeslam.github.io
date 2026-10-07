@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吃瓜网-热点话题聚合与网络事件观察指南</title>
+<meta name="description" content="吃瓜网是一个聚合网络热点话题、娱乐动态与社会讨论的资讯类站点，提供话题梳理、事件脉络、网友观点与理性吃瓜指南，帮助读者快速了解正在发生的热门事件。">
+<meta name="keywords" content="吃瓜网,吃瓜,热点话题,娱乐动态,网络事件,热搜话题,网友讨论,吃瓜指南">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#0f1115;
+  --bg-soft:#161a21;
+  --panel:#1c212b;
+  --panel-2:#232936;
+  --line:#2c3341;
+  --text:#e8ecf3;
+  --text-dim:#9aa4b5;
+  --text-mute:#6f7a8c;
+  --melon:#ff6b53;
+  --melon-deep:#e8482f;
+  --green:#4ecb8d;
+  --gold:#f5c451;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+
+.wrap{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 18px;
+}
+
+/* ---------- 顶部条 ---------- */
+.topbar{
+  background:linear-gradient(90deg,#1a1f28,#141821);
+  border-bottom:1px solid var(--line);
+  font-size:12.5px;
+  color:var(--text-mute);
+}
+.topbar .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  height:36px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.topbar .live{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--melon);
+}
+.topbar .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--melon);
+  box-shadow:0 0 0 0 rgba(255,107,83,.7);
+  animation:pulse 1.8s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,107,83,.55);}
+  70%{box-shadow:0 0 0 8px rgba(255,107,83,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,107,83,0);}
+}
+.topbar .tb-links{display:flex;gap:16px;}
+.topbar .tb-links a:hover{color:var(--text);}
+
+/* ---------- 头部 ---------- */
+.site-header{
+  background:var(--bg-soft);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(8px);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  height:68px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:.5px;
+  flex-shrink:0;
+}
+.logo .mark{
+  width:34px;height:34px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--melon),var(--melon-deep));
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;
+  box-shadow:0 4px 14px rgba(232,72,47,.4);
+}
+.logo span.txt{color:var(--text);}
+.logo span.txt em{font-style:normal;color:var(--melon);}
+
+.main-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.main-nav a{
+  padding:8px 13px;
+  border-radius:var(--radius-sm);
+  font-size:14.5px;
+  color:var(--text-dim);
+  transition:.2s;
+}
+.main-nav a:hover{color:var(--text);background:var(--panel-2);}
+.main-nav a.active{color:#fff;background:rgba(255,107,83,.16);font-weight:600;}
+
+.header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.search-box{
+  display:flex;align-items:center;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:5px 6px 5px 14px;
+  transition:.2s;
+}
+.search-box:focus-within{border-color:var(--melon);}
+.search-box input{
+  background:none;border:none;outline:none;
+  color:var(--text);font-size:13.5px;width:130px;
+  font-family:inherit;
+}
+.search-box input::placeholder{color:var(--text-mute);}
+.search-box button{
+  background:var(--melon);
+  border:none;color:#fff;
+  border-radius:999px;
+  padding:6px 13px;
+  font-size:13px;cursor:pointer;
+  font-family:inherit;
+  transition:.2s;
+}
+.search-box button:hover{background:var(--melon-deep);}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding:42px 0 34px;
+  background:
+    radial-gradient(900px 320px at 12% -10%,rgba(255,107,83,.16),transparent 60%),
+    radial-gradient(700px 300px at 92% 0%,rgba(78,203,141,.10),transparent 60%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.35fr .95fr;
+  gap:34px;
+  align-items:start;
+}
+.hero h1{
+  font-size:34px;
+  line-height:1.32;
+  font-weight:800;
+  letter-spacing:.3px;
+  margin-bottom:14px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--melon),var(--gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero p.lead{
+  color:var(--text-dim);
+  font-size:15.5px;
+  max-width:640px;
+  margin-bottom:20px;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px;}
+.hero-tags span{
+  font-size:12.5px;
+  padding:5px 12px;
+  border-radius:999px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text-dim);
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:11px 22px;
+  border-radius:999px;
+  font-size:14.5px;
+  font-weight:600;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.2s;
+  font-family:inherit;
+}
+.btn-primary{background:var(--melon);color:#fff;}
+.btn-primary:hover{background:var(--melon-deep);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line);}
+.btn-ghost:hover{border-color:var(--melon);color:var(--melon);}
+
+/* Hero 右侧：今日热议榜 */
+.hero-side{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 18px 8px;
+  box-shadow:var(--shadow);
+}
+.hero-side h2{
+  font-size:15px;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;
+  padding-bottom:10px;
+  border-bottom:1px dashed var(--line);
+}
+.hero-side h2 small{font-size:12px;color:var(--text-mute);font-weight:400;}
+.hot-list li{
+  display:flex;
+  gap:11px;
+  padding:9px 0;
+  border-bottom:1px solid rgba(44,51,65,.6);
+  font-size:14px;
+  align-items:flex-start;
+}
+.hot-list li:last-child{border-bottom:none;}
+.hot-list .rank{
+  flex-shrink:0;
+  width:20px;height:20px;
+  border-radius:6px;
+  background:var(--panel-2);
+  color:var(--text-mute);
+  font-size:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;
+  margin-top:3px;
+}
+.hot-list li:nth-child(1) .rank{background:var(--melon);color:#fff;}
+.hot-list li:nth-child(2) .rank{background:rgba(255,107,83,.65);color:#fff;}
+.hot-list li:nth-child(3) .rank{background:rgba(255,107,83,.35);color:#fff;}
+.hot-list a{color:var(--text-dim);transition:.2s;line-height:1.55;}
+.hot-list a:hover{color:var(--melon);}
+
+/* ---------- 通用区块 ---------- */
+.section{padding:44px 0;}
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:22px;
+}
+.section-head h2{
+  font-size:22px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-head h2::before{
+  content:"";
+  width:4px;height:20px;
+  border-radius:3px;
+  background:linear-gradient(180deg,var(--melon),var(--gold));
+}
+.section-head p{font-size:13.5px;color:var(--text-mute);margin-top:4px;}
+.section-head .more{
+  font-size:13.5px;
+  color:var(--text-dim);
+  white-space:nowrap;
+  transition:.2s;
+}
+.section-head .more:hover{color:var(--melon);}
+
+/* ---------- 话题卡片 ---------- */
+.topic-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.topic-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:.22s;
+}
+.topic-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,107,83,.5);
+  box-shadow:0 12px 26px rgba(0,0,0,.4);
+}
+.topic-card .cat{
+  font-size:12px;
+  color:var(--melon);
+  background:rgba(255,107,83,.12);
+  border:1px solid rgba(255,107,83,.25);
+  padding:2px 9px;
+  border-radius:999px;
+  align-self:flex-start;
+}
+.topic-card h3{
+  font-size:16.5px;
+  line-height:1.5;
+  font-weight:700;
+}
+.topic-card p{
+  font-size:13.5px;
+  color:var(--text-dim);
+  flex:1;
+}
+.topic-card .meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  color:var(--text-mute);
+  border-top:1px dashed var(--line);
+  padding-top:10px;
+}
+
+/* ---------- 事件脉络 ---------- */
+.timeline-wrap{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:26px;
+  align-items:start;
+}
+.timeline{
+  position:relative;
+  padding-left:26px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:7px;top:6px;bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg,rgba(255,107,83,.7),rgba(255,107,83,.05));
+}
+.tl-item{position:relative;padding-bottom:22px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-24px;top:7px;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--melon);
+}
+.tl-item h3{font-size:15.5px;margin-bottom:5px;}
+.tl-item p{font-size:13.5px;color:var(--text-dim);}
+
+.side-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:16px;
+}
+.side-card h3{
+  font-size:15px;
+  margin-bottom:12px;
+  padding-bottom:9px;
+  border-bottom:1px dashed var(--line);
+}
+.check-list li{
+  display:flex;
+  gap:9px;
+  font-size:13.5px;
+  color:var(--text-dim);
+  padding:6px 0;
+}
+.check-list li::before{
+  content:"✓";
+  color:var(--green);
+  font-weight:700;
+  flex-shrink:0;
+}
+.warn-list li{
+  display:flex;
+  gap:9px;
+  font-size:13.5px;
+  color:var(--text-dim);
+  padding:6px 0;
+}
+.warn-list li::before{
+  content:"!";
+  color:var(--gold);
+  font-weight:800;
+  flex-shrink:0;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:rgba(245,196,81,.14);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* ---------- 栏目频道 ---------- */
+.channel-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.channel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px 18px;
+  transition:.22s;
+}
+.channel:hover{
+  background:var(--panel-2);
+  border-color:rgba(255,107,83,.45);
+}
+.channel .ico{
+  width:38px;height:38px;
+  border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  margin-bottom:12px;
+  background:rgba(255,107,83,.13);
+  color:var(--melon);
+}
+.channel:nth-child(2) .ico{background:rgba(78,203,141,.13);color:var(--green);}
+.channel:nth-child(3) .ico{background:rgba(245,196,81,.13);color:var(--gold);}
+.channel:nth-child(4) .ico{background:rgba(120,160,255,.13);color:#7aa0ff;}
+.channel h3{font-size:15.5px;margin-bottom:7px;}
+.channel p{font-size:13px;color:var(--text-dim);}
+
+/* ---------- 讨论区 ---------- */
+.discuss{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.post{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 18px;
+  transition:.2s;
+}
+.post:hover{border-color:rgba(255,107,83,.4);}
+.post .post-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:9px;
+}
+.avatar{
+  width:30px;height:30px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#3a4356,#242b38);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;
+  color:var(--text-dim);
+  flex-shrink:0;
+}
+.post .who{font-size:13px;color:var(--text-dim);}
+.post .who b{color:var(--text);font-weight:600;}
+.post h3{font-size:15px;margin-bottom:6px;line-height:1.55;}
+.post p{font-size:13.5px;color:var(--text-dim);}
+.post .post-foot{
+  display:flex;gap:16px;
+  font-size:12.5px;
+  color:var(--text-mute);
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed var(--line);
+}
+
+/* ---------- 指南正文 ---------- */
+.guide{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.guide article{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+}
+.guide article h3{
+  font-size:17px;
+  margin-bottom:10px;
+  display:flex;align-items:center;gap:9px;
+}
+.guide article h3 .num{
+  width:24px;height:24px;
+  border-radius:8px;
+  background:rgba(255,107,83,.14);
+  color:var(--melon);
+  font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.guide article p{
+  font-size:14px;
+  color:var(--text-dim);
+  margin-bottom:9px;
+}
+.guide article p:last-child{margin-bottom:0;}
+.guide article strong{color:var(--text);font-weight:600;}
+
+/* ---------- FAQ ---------- */
+.faq-list{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--panel);
+}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-item:last-child{border-bottom:none;}
+.faq-item summary{
+  cursor:pointer;
+  padding:16px 20px;
+  font-size:15px;
+  font-weight:600;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  transition:.2s;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";
+  color:var(--melon);
+  font-size:19px;
+  font-weight:400;
+  flex-shrink:0;
+  transition:.2s;
+}
+.faq-item[open] summary::after{content:"−";}
+.faq-item summary:hover{background:var(--panel-2);}
+.faq-item .answer{
+  padding:0 20px 18px;
+  font-size:14px;
+  color:var(--text-dim);
+  line-height:1.8;
+}
+
+/* ---------- 订阅条 ---------- */
+.subscribe{
+  background:linear-gradient(120deg,rgba(255,107,83,.14),rgba(245,196,81,.07));
+  border:1px solid rgba(255,107,83,.3);
+  border-radius:var(--radius);
+  padding:30px 26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.subscribe h2{font-size:20px;margin-bottom:6px;}
+.subscribe p{font-size:13.5px;color:var(--text-dim);}
+.sub-form{display:flex;gap:10px;flex-wrap:wrap;}
+.sub-form input{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:11px 18px;
+  color:var(--text);
+  font-size:14px;
+  outline:none;
+  min-width:220px;
+  font-family:inherit;
+}
+.sub-form input:focus{border-color:var(--melon);}
+
+/* ---------- 页脚 ---------- */
+.site-footer{
+  background:var(--bg-soft);
+  border-top:1px solid var(--line);
+  padding:40px 0 24px;
+  margin-top:20px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:28px;
+  margin-bottom:30px;
+}
+.footer-grid h3{
+  font-size:14.5px;
+  margin-bottom:14px;
+  color:var(--text);
+}
+.footer-grid p{
+  font-size:13px;
+  color:var(--text-mute);
+  line-height:1.85;
+}
+.footer-grid ul li{margin-bottom:9px;}
+.footer-grid ul a{
+  font-size:13px;
+  color:var(--text-mute);
+  transition:.2s;
+}
+.footer-grid ul a:hover{color:var(--melon);}
+.footer-bottom{
+  border-top:1px solid var(--line);
+  padding-top:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  font-size:12.5px;
+  color:var(--text-mute);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;}
+  .topic-grid{grid-template-columns:repeat(2,1fr);}
+  .channel-grid{grid-template-columns:repeat(2,1fr);}
+  .timeline-wrap{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:29px;}
+}
+@media (max-width:760px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;}
+  .main-nav{order:3;width:100%;overflow-x:auto;padding-bottom:4px;}
+  .main-nav a{white-space:nowrap;}
+  .search-box input{width:96px;}
+  .hero{padding:30px 0 26px;}
+  .hero h1{font-size:25px;}
+  .topic-grid,.discuss,.guide{grid-template-columns:1fr;}
+  .channel-grid{grid-template-columns:1fr 1fr;}
+  .section{padding:32px 0;}
+  .section-head h2{font-size:19px;}
+  .subscribe{padding:24px 20px;}
+  .footer-grid{grid-template-columns:1fr;gap:22px;}
+  .topbar .tb-links{display:none;}
+}
+@media (max-width:420px){
+  .channel-grid{grid-template-columns:1fr;}
+  .logo{font-size:18px;}
+  .hero h1{font-size:22px;}
+  .btn{padding:10px 18px;font-size:13.5px;}
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部信息条 -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="live"><span class="dot"></span>热点持续更新中 · 理性围观，文明讨论</span>
+    <span class="tb-links">
+      <a href="#topics">今日话题</a>
+      <a href="#guide">吃瓜指南</a>
+      <a href="#faq">常见问题</a>
+    </span>
+  </div>
+</div>
+
+<!-- 页眉 -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">
+      <span class="mark">🍉</span>
+      <span class="txt">吃瓜<em>网</em></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#" class="active">首页</a>
+      <a href="#topics">热点话题</a>
+      <a href="#timeline">事件脉络</a>
+      <a href="#channels">频道分类</a>
+      <a href="#discuss">网友讨论</a>
+      <a href="#guide">吃瓜指南</a>
+    </nav>
+    <div class="header-actions">
+      <form class="search-box" onsubmit="return false;" role="search">
+        <input type="search" placeholder="搜索话题 / 关键词" aria-label="搜索话题">
+        <button type="submit">搜索</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>吃瓜网：把热闹看明白，<em>把信息理清楚</em></h1>
+        <p class="lead">
+          网络上每天都有新话题冒出来，热搜、截图、短视频片段往往只给出一个碎片。吃瓜网做的事情，是把这些碎片按时间顺序、按信息来源整理到一起，让你在围观之前先弄清"发生了什么""谁在说""哪些还没被证实"。
+        </p>
+        <div class="hero-tags">
+          <span># 热点话题</span>
+          <span># 事件时间线</span>
+          <span># 多方观点</span>
+          <span># 信息核实</span>
+          <span># 理性围观</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#topics" class="btn btn-primary">浏览今日话题 →</a>
+          <a href="#guide" class="btn btn-ghost">先看吃瓜指南</a>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="热议榜">
+        <h2>热议话题榜 <small>按讨论热度排序</small></h2>
+        <ul class="hot-list">
+          <li><span class="rank">1</span><a href="#topics">某综艺节目剪辑争议引发网友对节目组沟通方式的讨论</a></li>
+          <li><span class="rank">2</span><a href="#topics">品牌联名活动宣传物料被指表述不当，官方回应情况说明</a></li>
+          <li><span class="rank">3</span><a href="#topics">网络流传的聊天记录截图真伪存疑，多方尚未正式回应</a></li>
+          <li><span class="rank">4</span><a href="#topics">影视作品角色选角传闻持续发酵，片方暂未公布名单</a></li>
+          <li><span class="rank">5</span><a href="#topics">某城市文旅宣传片取景地走红，当地回应接待安排</a></li>
+          <li><span class="rank">6</span><a href="#topics">社交平台调整内容推荐规则，创作者关注流量变化</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 今日话题 -->
+  <section class="section" id="topics">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>今日热点话题</h2>
+          <p>按事件类型分区整理，标注信息来源与待核实部分</p>
+        </div>
+        <a href="#channels" class="more">查看全部频道 →</a>
+      </div>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="cat">娱乐动态</span>
+          <h3>综艺剪辑争议：观众关注的其实是沟通方式</h3>
+          <p>节目播出后，部分观众认为成片剪辑放大了嘉宾之间的摩擦。目前节目组与嘉宾方均未发布正式声明，网络流传的多为观众自行截取的片段，完整语境仍需以正片为准。</p>
+          <div class="meta"><span>整理中 · 持续跟进</span><span>讨论热度较高</span></div>
+        </article>
+
+        <article class="topic-card">
+          <span class="cat">品牌舆情</span>
+          <h3>联名宣传物料被指表述不当，品牌方发布说明</h3>
+          <p>相关宣传图上线后引发讨论，品牌方随后发布情况说明并调整了部分物料。此类事件通常涉及文案审核流程，围观时建议以官方渠道发布的内容为准。</p>
+          <div class="meta"><span>已有官方回应</span><span>讨论趋于平缓</span></div>
+        </article>
+
+        <article class="topic-card">
+          <span class="cat">信息核实</span>
+          <h3>聊天记录截图真伪存疑，注意区分"爆料"与"证据"</h3>
+          <p>社交平台上流传的截图缺乏可验证的原始来源，截图本身容易被修改或拼接。在当事方未回应前，建议将其视为未经证实的信息，避免二次传播。</p>
+          <div class="meta"><span>待核实</span><span>谨慎转发</span></div>
+        </article>
+
+        <article class="topic-card">
+          <span class="cat">影视资讯</span>
+          <h3>选角传闻持续发酵，片方暂未公布正式名单</h3>
+          <p>关于新项目演员阵容的讨论多来自自媒体推测。影视项目在官宣前通常存在调整空间，演员档期、剧本修改都可能影响最终结果。</p>
+          <div class="meta"><span>未经官宣</span><span>仅供参考</span></div>
+        </article>
+
+        <article class="topic-card">
+          <span class="cat">城市生活</span>
+          <h3>取景地走红后的接待压力，当地回应安排</h3>
+          <p>宣传片带火取景地后，短时间内客流集中。当地就交通、限流等问题作出回应。这类话题往往也涉及游客体验与居民生活的平衡。</p>
+          <div class="meta"><span>已有回应</span><span>实用信息</span></div>
+        </article>
+
+        <article class="topic-card">
+          <span class="cat">平台规则</span>
+          <h3>内容推荐规则调整，创作者关注流量变化</h3>
+          <p>平台更新推荐机制说明后，创作者群体对流量分配展开讨论。规则类变化通常需要一段时间观察实际影响，短期数据波动不宜过度解读。</p>
+          <div class="meta"><span>规则类话题</span><span>长期观察</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 事件脉络 + 侧栏 -->
+  <section class="section" id="timeline">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>事件脉络怎么读</h2>
+          <p>一个话题从出现到平息，通常经历这几个阶段</p>
+        </div>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline">
+          <div class="tl-item">
+            <h3>① 话题出现</h3>
+            <p>某个片段、截图或一句话在社交平台被转发，信息量小、情绪浓度高，此时最容易出现断章取义。</p>
+          </div>
+          <div class="tl-item">
+            <h3>② 多方转述</h3>
+            <p>不同账号开始二次加工，加入各自的解读。此时信息开始分化，同一件事可能出现多个版本。</p>
+          </div>
+          <div class="tl-item">
+            <h3>③ 当事方回应</h3>
+            <p>官方、当事人或相关机构发布说明。回应内容往往比传闻更克制，也更容易被忽略。</p>
+          </div>
+          <div class="tl-item">
+            <h3>④ 信息沉淀</h3>
+            <p>热度下降后，可核实的事实逐渐清晰，未被证实的说法自然消退。这一阶段适合回看和复盘。</p>
+          </div>
+          <div class="tl-item">
+            <h3>⑤ 长期影响</h3>
+            <p>部分话题会推动规则调整、行业讨论或公众认知变化，这部分价值往往在热度过去后才显现。</p>
+          </div>
+        </div>
+
+        <aside>
+          <div class="side-card">
+            <h3>围观前的三个自查</h3>
+            <ul class="check-list">
+              <li>这条信息的原始出处是哪里？</li>
+              <li>有没有当事方或权威渠道的回应？</li>
+              <li>我转发它是为了分享信息，还是单纯表达情绪？</li>
+            </ul>
+          </div>
+          <div class="side-card">
+            <h3>容易踩坑的几种情况</h3>
+            <ul class="warn-list">
+              <li>只有截图没有原始链接的内容</li>
+              <li>时间线混乱、把旧事当新闻的搬运</li>
+              <li>带有明显引导性标题的二次剪辑</li>
+              <li>以"内部人士"为唯一信源的爆料</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 频道分类 -->
+  <section class="section" id="channels">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>频道分类</h2>
+          <p>按话题领域划分，方便你找到自己关心的方向</p>
+        </div>
+      </div>
+
+      <div class="channel-grid">
+        <div class="channel">
+          <div class="ico">🎬</div>
+          <h3>娱乐动态</h3>
+          <p>影视、综艺、音乐相关的公开动态与行业讨论，聚焦作品本身与公开信息。</p>
+        </div>
+        <div class="channel">
+          <div class="ico">📱</div>
+          <h3>网络热点</h3>
+          <p>社交平台上的高讨论度话题，梳理来龙去脉，标注尚未证实的部分。</p>
+        </div>
+        <div class="channel">
+          <div class="ico">🏙️</div>
+          <h3>生活观察</h3>
+          <p>与日常相关的城市、消费、服务类话题，关注实用信息与实际影响。</p>
+        </div>
+        <div class="channel">
+          <div class="ico">🔍</div>
+          <h3>信息核实</h3>
+          <p>针对流传较广的说法，整理可查证的来源与当事方回应情况。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 网友讨论 -->
+  <section class="section" id="discuss">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>网友讨论</h2>
+          <p>不同角度的观点，欢迎补充事实、交换看法</p>
+        </div>
+      </div>
+
+      <div class="discuss">
+        <article class="post">
+          <div class="post-head">
+            <span class="avatar">观</span>
+            <span class="who"><b>观察者甲</b> · 2 小时前</span>
+          </div>
+          <h3>剪辑争议这件事，其实更值得聊的是节目制作流程</h3>
+          <p>与其争论谁对谁错，不如讨论成片审核环节是怎么运作的。观众看到的版本经过了哪些处理，这部分信息其实很少被公开。</p>
+          <div class="post-foot"><span>👍 128</span><span>💬 34</span><span>↗ 分享</span></div>
+        </article>
+
+        <article class="post">
+          <div class="post-head">
+            <span class="avatar">路</span>
+            <span class="who"><b>路过的猫</b> · 4 小时前</span>
+          </div>
+          <h3>截图类爆料建议大家养成先找原链接的习惯</h3>
+          <p>很多流传很广的截图，最后都找不到原始出处。养成"先看来源再看内容"的习惯，能过滤掉相当一部分不靠谱的信息。</p>
+          <div class="post-foot"><span>👍 96</span><span>💬 21</span><span>↗ 分享</span></div>
+        </article>
+
+        <article class="post">
+          <div class="post-head">
+            <span class="avatar">慢</span>
+            <span class="who"><b>慢半拍</b> · 6 小时前</span>
+          </div>
+          <h3>热度过去之后再回看，往往能看清更多东西</h3>
+          <p>话题最热的时候信息最乱，等几天再看，事实和猜测基本就能分开了。我一般会把感兴趣的话题存起来，过几天再翻。</p>
+          <div class="post-foot"><span>👍 74</span><span>💬 12</span><span>↗ 分享</span></div>
+        </article>
+
+        <article class="post">
+          <div class="post-head">
+            <span class="avatar">新</span>
+            <span class="who"><b>新手吃瓜</b> · 8 小时前</span>
+          </div>
+          <h3>想问一下，怎么判断一个话题值不值得跟进？</h3>
+          <p>有些话题看着热闹，过两天就没了；有些则会持续影响很久。有没有什么简单的方法可以判断？</p>
+          <div class="post-foot"><span>👍 52</span><span>💬 47</span><span>↗ 分享</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 吃瓜指南 -->
+  <section class="section" id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>吃瓜指南</h2>
+          <p>围观是一种参与方式，方法对了才不会白看</p>
+        </div>
+      </div>
+
+      <div class="guide">
+        <article>
+          <h3><span class="num">1</span>先分清"事实"和"说法"</h3>
+          <p><strong>事实</strong>是可以被多方验证的客观信息，比如官方发布的公告、可查证的时间地点。<strong>说法</strong>则是某个人或某个账号的表述，可能真实，也可能带有立场或误差。</p>
+          <p>围观时把这两者分开记录，能避免把"有人说"直接当成"已经发生"。</p>
+        </article>
+
+        <article>
+          <h3><span class="num">2</span>关注信息的时间顺序</h3>
+          <p>很多争议源于把不同时间点的事情混在一起讲。看到一条信息时，先确认它是什么时候发生的、是事件的开头还是后续。</p>
+          <p>时间线清晰之后，很多看似矛盾的说法其实并不冲突。</p>
+        </article>
+
+        <article>
+          <h3><span class="num">3</span>留意信源的层级</h3>
+          <p>当事方直接发布的内容、权威媒体的报道、自媒体转述、匿名爆料，可信度通常依次递减。不是说后者一定错，而是需要更多交叉验证。</p>
+          <p>如果一条信息只有单一匿名来源，且没有其他渠道印证，建议先标记为"待观察"。</p>
+        </article>
+
+        <article>
+          <h3><span class="num">4</span>控制转发的冲动</h3>
+          <p>转发是传播链条里影响力最大的一环。在事实尚未清晰时，一句"据说"也可能被下一个人当成确定信息继续传下去。</p>
+          <p>如果确实想讨论，可以只描述"目前看到的信息是什么"，而不是直接下结论。</p>
+        </article>
+
+        <article>
+          <h3><span class="num">5</span>把注意力放回自己身上</h3>
+          <p>围观本身没有错，但如果长时间沉浸在情绪化的话题里，容易影响自己的状态。设定一个时间边界，看完就去做别的事。</p>
+          <p>真正有价值的围观，是让你对世界多一分理解，而不是多一分疲惫。</p>
+        </article>
+
+        <article>
+          <h3><span class="num">6</span>尊重当事人的基本边界</h3>
+          <p>讨论公开事件时，尽量避免涉及与事件无关的个人信息，也不要对未经确认的私人内容进行扩散。</p>
+          <p>热闹会过去，但网络上的内容会留存很久，这一点对每个人都一样。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>关于吃瓜和本站的一些说明</p>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>吃瓜网主要提供什么内容？</summary>
+          <div class="answer">
+            本站以整理公开的网络热点话题为主，包括话题的背景梳理、时间线归纳、各方公开回应，以及网友的多元观点。我们不生产爆料，也不对未经证实的信息下结论，重点在于帮助读者快速了解一个话题的来龙去脉。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>页面上的话题信息可靠吗？</summary>
+          <div class="answer">
+            我们会尽量标注信息来源和当前状态（如"已有官方回应""待核实"），但网络信息变化很快，部分内容可能在发布后出现新进展。建议把本站内容作为了解话题的起点，重要判断请以当事方和权威渠道的最新发布为准。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>为什么有些话题只写了"待核实"？</summary>
+          <div class="answer">
+            当一条信息缺乏可查证的原始来源，或者当事方尚未回应时，我们会如实标注状态，而不是直接给出结论。这样做的目的是避免把不确定的信息包装成确定的事实。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>可以在评论区发表不同看法吗？</summary>
+          <div class="answer">
+            欢迎基于事实的讨论和补充。需要注意的是，涉及人身攻击、未经证实的指控、与话题无关的个人信息，都不适合出现在讨论中。观点可以不同，表达方式可以克制。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>如何判断一个热点话题是否值得长期关注？</summary>
+          <div class="answer">
+            可以从三个角度观察：一是话题是否涉及规则、制度或行业层面的问题；二是是否有持续的官方或权威信息更新；三是讨论是否从情绪表达转向具体问题的探讨。满足其中两条以上的话题，通常会有较长的生命周期。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>本站会收集用户个人信息吗？</summary>
+          <div class="answer">
+            本站为内容浏览型页面，不要求注册即可阅读。如果未来开放互动功能，会另行说明信息使用方式。建议在任何网站上都避免提交与浏览无关的敏感信息。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅条 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="subscribe">
+        <div>
+          <h2>热点每天都有，理清楚再围观</h2>
+          <p>留下邮箱，获取每日话题梳理与信息核实要点。</p>
+        </div>
+        <form class="sub-form" onsubmit="return false;">
+          <input type="email" placeholder="请输入邮箱地址" aria-label="邮箱地址">
+          <button type="submit" class="btn btn-primary">订阅更新</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>🍉 吃瓜网</h3>
+        <p>整理公开热点话题，标注信息来源，帮助读者在围观之前先了解事情的全貌。理性吃瓜，从看清事实开始。</p>
+      </div>
+      <div>
+        <h3>内容频道</h3>
+        <ul>
+          <li><a href="#topics">今日热点话题</a></li>
+          <li><a href="#channels">频道分类</a></li>
+          <li><a href="#timeline">事件脉络</a></li>
+          <li><a href="#discuss">网友讨论</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>使用帮助</h3>
+        <ul>
+          <li><a href="#guide">吃瓜指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#topics">信息核实说明</a></li>
+          <li><a href="#discuss">讨论规范</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>关于本站</h3>
+        <ul>
+          <li><a href="#">站点介绍</a></li>
+          <li><a href="#">内容原则</a></li>
+          <li><a href="#">联系方式</a></li>
+          <li><a href="#">免责声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 吃瓜网 · 内容整理与信息核实平台</span>
+      <span>本站内容仅供参考，请以当事方及权威渠道发布为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 平滑滚动到锚点（兼容不支持 scroll-behavior 的环境）
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = this.getAttribute('href');
+      if(id.length < 2) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({top: top, behavior: 'smooth'});
+    });
+  });
+
+  // FAQ 手风琴：同一时间只展开一项
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(this.open){
+        faqItems.forEach(function(other){
+          if(other !== item) other.open = false;
+        });
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
